@@ -44,10 +44,4 @@ public class MovementScript : MonoBehaviour
             isGrounded = true;
         }
     }
-
-    //void OnCollisionExit(Collision other) {
-    //    if (other.gameObject.tag == "Ground") {
-    //        isGrounded = false;
-    //    }
-    //}
 }
