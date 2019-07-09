@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 474}
   m_MaxSize: {x: 18006, y: 14024}
   vertical: 0
-  controlID: 109
+  controlID: 30
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 110
+  controlID: 43
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 474}
   m_MaxSize: {x: 10004, y: 14024}
   vertical: 1
-  controlID: 52
+  controlID: 83
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -407,9 +407,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 40.20635, y: -11.306271, z: -1.8577423}
+    m_Target: {x: 0, y: 0.5, z: 0}
     speed: 2
-    m_Value: {x: 40.20635, y: -11.306271, z: -1.8577423}
+    m_Value: {x: 0, y: 0.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -437,13 +437,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.15169224, y: -0.7690681, z: 0.19827369, w: -0.5883972}
+    m_Target: {x: 0.009560513, y: -0.96227765, z: 0.26975513, w: 0.03409705}
     speed: 2
-    m_Value: {x: -0.15169224, y: -0.7690681, z: 0.19827369, w: -0.5883972}
+    m_Value: {x: 0.009560513, y: -0.96227765, z: 0.26975513, w: 0.03409705}
   m_Size:
-    m_Target: 84.78508
+    m_Target: 22.099361
     speed: 2
-    m_Value: 84.78508
+    m_Value: 22.099361
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -484,9 +484,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d0060000
-      m_LastClickedID: 0
-      m_ExpandedIDs: d4fbffff
+      m_SelectedIDs: 74e0ffff
+      m_LastClickedID: -8076
+      m_ExpandedIDs: 74e0ffffd4fbffffc20b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -551,10 +551,9 @@ MonoBehaviour:
     - Assets/Scripts
   m_ViewMode: 0
   m_StartGridSize: 64
-  m_LastFolders:
-  - Assets
+  m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Daniel\Desktop\Test
+  m_LastProjectPath: C:\Users\Daniel\Desktop\Repos\Quake-Halo\Test
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
