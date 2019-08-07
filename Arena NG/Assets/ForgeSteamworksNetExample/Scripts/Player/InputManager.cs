@@ -1,25 +1,20 @@
 using UnityEngine;
 
-namespace ForgeSteamworksNETExample.Player
-{
+namespace ForgeSteamworksNETExample.Player {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
-	public class InputManager : MonoBehaviour
-	{
-		public float MoveAmount { get; private set; }
+	public class InputManager : MonoBehaviour {
+		public float MoveAmount {
+			get; private set;
+		}
 
 		private float horizontal;
-
 		private float vertical;
 
 		private Camera cam;
-
 		private Rigidbody rb;
-
 		private Animator baseAnimator;
-
 		private Vector3 moveDirection;
-
 		private int animatorVertical;
 
 		[SerializeField]
@@ -28,33 +23,28 @@ namespace ForgeSteamworksNETExample.Player
 		[SerializeField]
 		private float rotationSpeed = 40f;
 
-		private void Start()
-		{
+		private void Start() {
 			rb = GetComponent<Rigidbody>();
 			baseAnimator = GetComponent<Animator>();
 			cam = GetComponentInChildren<Camera>();
 			animatorVertical = Animator.StringToHash("vertical");
 		}
 
-		private void Update()
-		{
+		private void Update() {
 			horizontal = Input.GetAxis("Horizontal");
 			vertical = Input.GetAxis("Vertical");
 			MoveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
 		}
 
-		private void FixedUpdate()
-		{
+		private void FixedUpdate() {
 			CameraRelativeMovement();
 		}
 
-		private void LateUpdate()
-		{
+		private void LateUpdate() {
 			baseAnimator.SetFloat(animatorVertical, MoveAmount);
 		}
 
-		private void CameraRelativeMovement()
-		{
+		private void CameraRelativeMovement() {
 			// Forward vector relative to the camera along the xz plane
 			var forward = cam.transform.TransformDirection(Vector3.forward);
 			forward.y = 0;
@@ -72,8 +62,7 @@ namespace ForgeSteamworksNETExample.Player
 			var moveVelocity = inputVector * moveSpeed;
 			moveVelocity.y = rb.velocity.y;
 
-			if (inputVector != Vector3.zero)
-			{
+			if (inputVector != Vector3.zero) {
 				rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(inputVector), Time.deltaTime * rotationSpeed);
 			}
 

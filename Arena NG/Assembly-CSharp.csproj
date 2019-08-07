@@ -62,11 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ArenaNG\Scripts\CharacterFootIK.cs" />
-    <Compile Include="Assets\ArenaNG\Scripts\ClassicPlayerController.cs" />
-    <Compile Include="Assets\ArenaNG\Scripts\ControlPoint.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Character\CharacterAnimator.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Character\CharacterManager.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Character\ClassicPlayerController.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Health\Health.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Health\IHealth.cs" />
     <Compile Include="Assets\ArenaNG\Scripts\ItemBase.cs" />
     <Compile Include="Assets\ArenaNG\Scripts\JumpPad.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Network\NetworkedTransform.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\Path.cs" />
+    <Compile Include="Assets\ArenaNG\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\ArenaNG\Scripts\ScriptableObjects\WeaponData.cs" />
     <Compile Include="Assets\ArenaNG\Scripts\TriggerVolume.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Generated\NetworkManager.cs" />
@@ -75,6 +81,8 @@
     <Compile Include="Assets\Bearded Man Studios Inc\Generated\UserGenerated\ChatManagerNetworkObject.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Generated\UserGenerated\PlayerBehavior.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Generated\UserGenerated\PlayerNetworkObject.cs" />
+    <Compile Include="Assets\Bearded Man Studios Inc\Generated\UserGenerated\TransformBehavior.cs" />
+    <Compile Include="Assets\Bearded Man Studios Inc\Generated\UserGenerated\TransformNetworkObject.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Modules\Chat\ChatMaker.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Modules\Chat\ChatManager.cs" />
     <Compile Include="Assets\Bearded Man Studios Inc\Modules\LobbySystem\LobbyManager.cs" />
@@ -223,6 +231,9 @@
     <Reference Include="Unity.ProGrids">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
@@ -250,6 +261,9 @@
     <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -259,8 +273,14 @@
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
@@ -276,21 +296,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

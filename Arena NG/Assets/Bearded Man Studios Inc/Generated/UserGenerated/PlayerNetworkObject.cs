@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace BeardedManStudios.Forge.Networking.Generated
 {
-	[GeneratedInterpol("{\"inter\":[0.15,0.15,0.15,0.15]")]
+	[GeneratedInterpol("{\"inter\":[0.15,0.15,0,0,0]")]
 	public partial class PlayerNetworkObject : NetworkObject
 	{
-		public const int IDENTITY = 3;
+		public const int IDENTITY = 2;
 
 		private byte[] _dirtyFields = new byte[1];
 
@@ -80,7 +80,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		[ForgeGeneratedField]
 		private Vector2 _animMoveVector;
 		public event FieldEvent<Vector2> animMoveVectorChanged;
-		public InterpolateVector2 animMoveVectorInterpolation = new InterpolateVector2() { LerpT = 0.15f, Enabled = true };
+		public InterpolateVector2 animMoveVectorInterpolation = new InterpolateVector2() { LerpT = 0f, Enabled = false };
 		public Vector2 animMoveVector
 		{
 			get { return _animMoveVector; }
@@ -111,7 +111,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 		[ForgeGeneratedField]
 		private float _animLookPitch;
 		public event FieldEvent<float> animLookPitchChanged;
-		public InterpolateFloat animLookPitchInterpolation = new InterpolateFloat() { LerpT = 0.15f, Enabled = true };
+		public InterpolateFloat animLookPitchInterpolation = new InterpolateFloat() { LerpT = 0f, Enabled = false };
 		public float animLookPitch
 		{
 			get { return _animLookPitch; }
@@ -139,6 +139,37 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			if (animLookPitchChanged != null) animLookPitchChanged(_animLookPitch, timestep);
 			if (fieldAltered != null) fieldAltered("animLookPitch", _animLookPitch, timestep);
 		}
+		[ForgeGeneratedField]
+		private int _health;
+		public event FieldEvent<int> healthChanged;
+		public Interpolated<int> healthInterpolation = new Interpolated<int>() { LerpT = 0f, Enabled = false };
+		public int health
+		{
+			get { return _health; }
+			set
+			{
+				// Don't do anything if the value is the same
+				if (_health == value)
+					return;
+
+				// Mark the field as dirty for the network to transmit
+				_dirtyFields[0] |= 0x10;
+				_health = value;
+				hasDirtyFields = true;
+			}
+		}
+
+		public void SethealthDirty()
+		{
+			_dirtyFields[0] |= 0x10;
+			hasDirtyFields = true;
+		}
+
+		private void RunChange_health(ulong timestep)
+		{
+			if (healthChanged != null) healthChanged(_health, timestep);
+			if (fieldAltered != null) fieldAltered("health", _health, timestep);
+		}
 
 		protected override void OwnershipChanged()
 		{
@@ -152,6 +183,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			rotationInterpolation.current = rotationInterpolation.target;
 			animMoveVectorInterpolation.current = animMoveVectorInterpolation.target;
 			animLookPitchInterpolation.current = animLookPitchInterpolation.target;
+			healthInterpolation.current = healthInterpolation.target;
 		}
 
 		public override int UniqueIdentity { get { return IDENTITY; } }
@@ -162,6 +194,7 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			UnityObjectMapper.Instance.MapBytes(data, _rotation);
 			UnityObjectMapper.Instance.MapBytes(data, _animMoveVector);
 			UnityObjectMapper.Instance.MapBytes(data, _animLookPitch);
+			UnityObjectMapper.Instance.MapBytes(data, _health);
 
 			return data;
 		}
@@ -184,6 +217,10 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			animLookPitchInterpolation.current = _animLookPitch;
 			animLookPitchInterpolation.target = _animLookPitch;
 			RunChange_animLookPitch(timestep);
+			_health = UnityObjectMapper.Instance.Map<int>(payload);
+			healthInterpolation.current = _health;
+			healthInterpolation.target = _health;
+			RunChange_health(timestep);
 		}
 
 		protected override BMSByte SerializeDirtyFields()
@@ -199,6 +236,8 @@ namespace BeardedManStudios.Forge.Networking.Generated
 				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _animMoveVector);
 			if ((0x8 & _dirtyFields[0]) != 0)
 				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _animLookPitch);
+			if ((0x10 & _dirtyFields[0]) != 0)
+				UnityObjectMapper.Instance.MapBytes(dirtyFieldsData, _health);
 
 			// Reset all the dirty fields
 			for (int i = 0; i < _dirtyFields.Length; i++)
@@ -267,6 +306,19 @@ namespace BeardedManStudios.Forge.Networking.Generated
 					RunChange_animLookPitch(timestep);
 				}
 			}
+			if ((0x10 & readDirtyFlags[0]) != 0)
+			{
+				if (healthInterpolation.Enabled)
+				{
+					healthInterpolation.target = UnityObjectMapper.Instance.Map<int>(data);
+					healthInterpolation.Timestep = timestep;
+				}
+				else
+				{
+					_health = UnityObjectMapper.Instance.Map<int>(data);
+					RunChange_health(timestep);
+				}
+			}
 		}
 
 		public override void InterpolateUpdate()
@@ -293,6 +345,11 @@ namespace BeardedManStudios.Forge.Networking.Generated
 			{
 				_animLookPitch = (float)animLookPitchInterpolation.Interpolate();
 				//RunChange_animLookPitch(animLookPitchInterpolation.Timestep);
+			}
+			if (healthInterpolation.Enabled && !healthInterpolation.current.UnityNear(healthInterpolation.target, 0.0015f))
+			{
+				_health = (int)healthInterpolation.Interpolate();
+				//RunChange_health(healthInterpolation.Timestep);
 			}
 		}
 

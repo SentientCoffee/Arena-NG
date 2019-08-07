@@ -33,44 +33,55 @@ namespace ForgeSteamworksNETExample.Player {
 		private ToggleEvent localScripts;
 
 		[SerializeField]
-		private ClassicPlayerController inputManager;
+		private Rigidbody baseBody;
 
 		[SerializeField]
 		private GameObject playerModel;
 
-		[SerializeField]
-		private Rigidbody baseBody;
-		private Animator baseAnimator;
+		private ArenaNG.CharacterAnimator animator;
+
 		private CSteamID steamId;
 
 		private void Awake() {
 			baseBody = GetComponent<Rigidbody>();
-			baseAnimator = playerModel.GetComponent<Animator>();
-			inputManager = GetComponent<ClassicPlayerController>();
+			animator = playerModel.GetComponent<ArenaNG.CharacterAnimator>();
 		}
 
-		private void FixedUpdate() {
-			if (networkObject.IsOwner) {        // Owner Client
+		private void Start() {
+			if (networkObject.IsOwner) {
 				SkinnedMeshRenderer[] meshes = playerModel.GetComponentsInChildren<SkinnedMeshRenderer>();
 
 				foreach (var mesh in meshes) {
 					mesh.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 				}
+			}
+		}
 
+		private void FixedUpdate() {
+			if (networkObject.IsOwner) {
+				// Send Object Transform
 				networkObject.position = baseBody.position;
 				networkObject.rotation = baseBody.rotation;
-				networkObject.animMoveVector = new Vector2(inputManager.moveDirectionNorm.x, inputManager.moveDirectionNorm.z);
-				networkObject.animLookPitch = inputManager.playerView.rotation.x;
+
+				// Weird hook hack
+				animator.moveDir.x = transform.InverseTransformDirection(animator.playerController.playerVelocity).x;
+				animator.moveDir.y = transform.InverseTransformDirection(animator.playerController.playerVelocity).z;
+				animator.lookPitch = animator.playerController.playerView.rotation.x;
+				// animator.airborne = !animator.playerController.GetComponent<CharacterController>().isGrounded;
+
+				networkObject.animMoveVector = animator.moveDir;
+				networkObject.animLookPitch = animator.lookPitch;
 			}
 
-			else {                              // Other Clients
+			else {
+				// Update Object Transform
 				baseBody.position = networkObject.position;
-				baseBody.rotation = networkObject.rotation;
-				baseAnimator.SetFloat("Forward", networkObject.animMoveVector.x);
-				baseAnimator.SetFloat("Right", networkObject.animMoveVector.y);
-				baseAnimator.SetFloat("Pitch", networkObject.animLookPitch);
+				baseBody.rotation = networkObject.rotation;	
 				return;
 			}
+
+			animator.moveDir = networkObject.animMoveVector;
+			animator.lookPitch = networkObject.animLookPitch;
 		}
 
 		protected override void NetworkStart() {

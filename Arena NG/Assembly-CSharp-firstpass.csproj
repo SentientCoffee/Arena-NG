@@ -152,6 +152,9 @@
     <Reference Include="Unity.ProGrids">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
@@ -179,6 +182,9 @@
     <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -188,8 +194,14 @@
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
@@ -205,21 +217,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Unity Projects/Arena-NG/Arena NG/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
