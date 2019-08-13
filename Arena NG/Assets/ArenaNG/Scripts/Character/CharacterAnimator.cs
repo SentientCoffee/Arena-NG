@@ -51,6 +51,11 @@ namespace ArenaNG {
 		private void OnJump() {
 			animator.SetTrigger("Jump");
 		}
+
+		private void OnToggleCrouch() {
+			animator.SetBool("Crouch", animator.GetBool("Crouch"));
+		}
+
 		#endregion
 
 		// Don't you dare touch my IK code :)

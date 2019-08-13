@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4652097025912794}
   - component: {fileID: 54283140523990642}
   - component: {fileID: 5620710244012363599}
-  - component: {fileID: 3541465948614435672}
+  - component: {fileID: 378122373447047370}
   - component: {fileID: 114402572435312292}
   - component: {fileID: 114732554307968112}
-  - component: {fileID: 378122373447047370}
+  - component: {fileID: 5971488177292288511}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -73,100 +73,23 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &3541465948614435672
+--- !u!114 &378122373447047370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000787960237960}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4067d67db600ba4494cbd812fe809a8, type: 3}
+  m_Script: {fileID: 11500000, guid: e4a57d99749746a408cbb6f5732ce01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerView: {fileID: 6846521038156325206}
-  xMouseSensitivity: 50
-  yMouseSensitivity: 50
-  friction: 5
-  moveSpeed: 10
-  runAcceleration: 15
-  runDeacceleration: 10
-  airAcceleration: 1
-  airDecceleration: 1
-  airControl: 0.5
-  sideStrafeAcceleration: 50
-  sideStrafeSpeed: 1
-  jumpSpeed: 5
-  style:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  moveDirectionNorm: {x: 0, y: 0, z: 0}
-  playerVelocity: {x: 0, y: 0, z: 0}
+  cameraTransform: {fileID: 6846521038156325206}
+  characterController: {fileID: 5620710244012363599}
+  rb: {fileID: 54283140523990642}
+  charAnim: {fileID: 1096995073009042381}
+  moveSpeed: 0
 --- !u!114 &114402572435312292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,17 +105,6 @@ MonoBehaviour:
   localScripts:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3541465948614435672}
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 9014022011183069088}
         m_MethodName: SetActive
         m_Mode: 0
@@ -203,17 +115,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1622779158271236}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: ForgeSteamworksNETExample.Player.NetworkedPlayer+ToggleEvent, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -233,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114402572435312292}
   avatar: {fileID: 114792714681721574}
---- !u!114 &378122373447047370
+--- !u!114 &5971488177292288511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,14 +143,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000787960237960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a57d99749746a408cbb6f5732ce01d, type: 3}
+  m_Script: {fileID: 11500000, guid: e4067d67db600ba4494cbd812fe809a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 6846521038156325206}
-  characterController: {fileID: 5620710244012363599}
-  rb: {fileID: 54283140523990642}
-  charAnim: {fileID: 1096995073009042381}
-  moveSpeed: 0
+  playerView: {fileID: 6846521038156325206}
+  xMouseSensitivity: 100
+  yMouseSensitivity: 100
+  friction: 5
+  moveSpeed: 7
+  runAcceleration: 14
+  runDeacceleration: 10
+  airAcceleration: 2
+  airDecceleration: 2
+  airControl: 0.2
+  sideStrafeAcceleration: 50
+  sideStrafeSpeed: 1
+  jumpSpeed: 8
+  moveDirectionNorm: {x: 0, y: 0, z: 0}
+  playerVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &1157699608714822
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  playerController: {fileID: 3541465948614435672}
+  playerController: {fileID: 0}
   moveDir: {x: 0, y: 0}
   lookPitch: 0
   airborne: 0
@@ -696,7 +607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6846521038156325206
 Transform:
   m_ObjectHideFlags: 0
