@@ -29,9 +29,6 @@ public class ClassicPlayerController : MonoBehaviour {
 	public float sideStrafeSpeed = 1.0f;          // What the max speed to generate when side strafing
 	public float jumpSpeed = 8.0f;                // The speed at which the character's up axis gains when hitting jump
 
-	/*print() style */
-	public GUIStyle style;
-
 	/*FPS Stuff */
 	private int frameCount = 0;
 	private float dt = 0.0f;

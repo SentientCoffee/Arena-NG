@@ -10,7 +10,6 @@ namespace ArenaNG {
 		public Rigidbody rb;
 
 		public CharacterAnimator charAnim;
-		public Health health;
 
 		[Header("Character Controller")]
 		public float moveSpeed;
@@ -26,18 +25,6 @@ namespace ArenaNG {
 
 			/* Note: While CharacterControllers do not actually use physics,
 			Rigidbodies are required to run methods for collisions and triggers. */
-		}
-
-		private void Start() {
-			
-		}
-
-		private void Update() {
-			
-		}
-
-		private void FixedUpdate() {
-			
 		}
 	}
 }

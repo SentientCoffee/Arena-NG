@@ -46,8 +46,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -646,7 +648,7 @@ ScriptsOnlyBuild:
     className: JumpPad
   - hash:
       serializedVersion: 2
-      Hash: b5ea83fa2b7f23f2b54969450401e79a
+      Hash: e9c1be9e79a2b821558d9ad4eca21b52
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkedTransform
@@ -736,7 +738,7 @@ ScriptsOnlyBuild:
     className: ColliderBehaviour
   - hash:
       serializedVersion: 2
-      Hash: efcdc9038f420e069d784d57a22e86ef
+      Hash: 12e3498937a6d47b03ce5e6bdb06ff19
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClassicPlayerController
