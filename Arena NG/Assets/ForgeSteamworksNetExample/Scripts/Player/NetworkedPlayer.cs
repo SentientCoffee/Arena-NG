@@ -29,21 +29,16 @@ namespace ForgeSteamworksNETExample.Player {
 		/// <summary>
 		/// Scripts that should be enabled for the local client
 		/// </summary>
-		[SerializeField]
-		private ToggleEvent localScripts;
+		[SerializeField] private ToggleEvent localScripts;
 
-		[SerializeField]
-		private Rigidbody baseBody;
-
-		[SerializeField]
-		private GameObject playerModel;
-
-		private ArenaNG.CharacterAnimator animator;
+		[SerializeField] private Rigidbody body;
+		[SerializeField] private GameObject playerModel;
+		[SerializeField] private ArenaNG.CharacterAnimator animator;
 
 		private CSteamID steamId;
 
 		private void Awake() {
-			baseBody = GetComponent<Rigidbody>();
+			body = GetComponent<Rigidbody>();
 			animator = playerModel.GetComponent<ArenaNG.CharacterAnimator>();
 		}
 
@@ -59,29 +54,17 @@ namespace ForgeSteamworksNETExample.Player {
 
 		private void FixedUpdate() {
 			if (networkObject.IsOwner) {
-				// Send Object Transform
-				networkObject.position = baseBody.position;
-				networkObject.rotation = baseBody.rotation;
-
-				// Weird hook hack
-				animator.moveDir.x = transform.InverseTransformDirection(animator.playerController.playerVelocity).x;
-				animator.moveDir.y = transform.InverseTransformDirection(animator.playerController.playerVelocity).z;
-				animator.lookPitch = animator.playerController.playerView.rotation.x;
-				// animator.airborne = !animator.playerController.GetComponent<CharacterController>().isGrounded;
-
-				networkObject.animMoveVector = animator.moveDir;
-				networkObject.animLookPitch = animator.lookPitch;
+				// Send Transform
+				networkObject.position = body.position;
+				networkObject.rotation = body.rotation;
 			}
 
 			else {
-				// Update Object Transform
-				baseBody.position = networkObject.position;
-				baseBody.rotation = networkObject.rotation;	
+				// Update Transform
+				body.position = networkObject.position;
+				body.rotation = networkObject.rotation;
 				return;
 			}
-
-			animator.moveDir = networkObject.animMoveVector;
-			animator.lookPitch = networkObject.animLookPitch;
 		}
 
 		protected override void NetworkStart() {

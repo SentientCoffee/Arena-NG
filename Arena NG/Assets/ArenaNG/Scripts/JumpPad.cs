@@ -10,6 +10,10 @@ namespace ArenaNG {
 		public Vector3 launchDirection;
 		public Event onActivate;
 
+		private void Start() {
+			
+		}
+
 		private void OnCollisionEnter(Collision collision) {
 			if (collision.collider.CompareTag("Player")) {		// Check to see if it is a player.
 				collision.gameObject.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);

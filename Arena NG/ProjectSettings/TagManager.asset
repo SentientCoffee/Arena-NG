@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Unidirectional
-  - 
+  - Character/Controller
+  - Character/Hitbox
   - 
   - 
   - 

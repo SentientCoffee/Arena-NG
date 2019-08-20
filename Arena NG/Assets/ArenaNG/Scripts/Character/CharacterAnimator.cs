@@ -4,22 +4,18 @@ using UnityEngine;
 
 namespace ArenaNG {
 	public class CharacterAnimator : MonoBehaviour {
-		private Animator animator;
-		public CharacterManager character;
-		public ClassicPlayerController playerController;
+		public Animator animator;
+		public Rigidbody body;
 
 		[Header("Animator Controller")]
-		public Vector2 moveDir;
 		public float lookPitch;
-		public bool airborne;
-		public bool crouching;
 
 		[Header("Inverse Kinematics")]
 		public bool useFootIK = true;
-		public LayerMask footIKLayer;
-		public float raycastHeightFromGround = 1.25f, raycastDownDistance = 1.5f, pelvisOffset;
-		public float feetToIKDeltaSpeed = 0.2f, pelvisDeltaSpeed = 0.5f;
-		private string lFootAnimVarName = "LeftFootCurve", rFootAnimVarName = "RightFootCurve";
+		[SerializeField] private LayerMask footIKLayer;
+		[SerializeField] private float raycastHeightFromGround = 1.25f, raycastDownDistance = 1.5f, pelvisOffset;
+		[SerializeField] private float feetToIKDeltaSpeed = 0.2f, pelvisDeltaSpeed = 0.5f;
+		[SerializeField] private string lFootAnimVarName = "LeftFootCurve", rFootAnimVarName = "RightFootCurve";
 		private Vector3 leftFootPos, rightFootPos;
 		private Vector3 leftFootIKPos, rightFootIKPos;
 		private Quaternion leftFootIKRot, rightFootIKRot;
@@ -27,15 +23,15 @@ namespace ArenaNG {
 
 		private void Awake() {
 			animator = GetComponent<Animator>();
+			body = GetComponentInParent<Rigidbody>();
 		}
 
-		private void FixedUpdate() {
-			// crouching = character.isCrouching;		// Implement later.
-			animator.SetFloat("Forward", moveDir.x);
-			animator.SetFloat("Right", moveDir.y);
+		private void Update() {
+			animator.SetFloat("Forward", transform.InverseTransformDirection(body.velocity).x);
+			animator.SetFloat("Right", transform.InverseTransformDirection(body.velocity).z);
 			animator.SetFloat("Pitch", lookPitch);
-			animator.SetBool("Crouch", crouching);
 
+			// Inverse Kinematics
 			if (useFootIK == false || animator == null) {
 				return;
 			}

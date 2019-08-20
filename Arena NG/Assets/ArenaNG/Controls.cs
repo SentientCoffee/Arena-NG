@@ -22,7 +22,7 @@ public class Controls : IInputActionCollection
                     ""type"": ""Value"",
                     ""id"": ""99ed181a-6485-40c1-8b74-c763fe52196b"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=2,y=2)"",
                     ""interactions"": """"
                 },
                 {
@@ -63,7 +63,7 @@ public class Controls : IInputActionCollection
                     ""id"": ""8bcd60f3-8b20-4aa1-9849-42d179bd13f5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Secondary Fire"",
@@ -71,7 +71,7 @@ public class Controls : IInputActionCollection
                     ""id"": ""592369c9-651a-473c-b3a2-f9774cce9532"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold,Press""
                 },
                 {
                     ""name"": ""Reload"",
@@ -79,7 +79,7 @@ public class Controls : IInputActionCollection
                     ""id"": ""952bc487-ee12-497a-8a7f-267434b350ce"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Context Use"",
@@ -87,13 +87,13 @@ public class Controls : IInputActionCollection
                     ""id"": ""d2e21138-298c-463e-9618-086ca71451a7"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold,Press""
                 },
                 {
                     ""name"": ""Item Slot Switch"",
                     ""type"": ""Value"",
                     ""id"": ""38133fd4-7197-4af9-bb99-220d0844cd9d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -134,7 +134,7 @@ public class Controls : IInputActionCollection
                 {
                     ""name"": ""WASD"",
                     ""id"": ""8064f7cd-470a-40ba-a02e-de119f550673"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(normalize=false)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

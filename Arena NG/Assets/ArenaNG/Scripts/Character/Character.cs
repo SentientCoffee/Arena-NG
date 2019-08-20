@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ArenaNG {
 	public class Character : MonoBehaviour {
-		public Health health;
+		public Health Health = new Health();
+
 	}
 }
